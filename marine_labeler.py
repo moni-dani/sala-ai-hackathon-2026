@@ -69,10 +69,16 @@ def _get_audio_from_r2(file_path, start_s, end_s):
     # En R2 el dataset marine-acoustic-core tiene la misma estructura
     parts = Path(file_path).parts
     try:
+        # Ruta local: .../marine-acoustic/marine-acoustic/5783/file.wav
+        # Clave R2:   marine-acoustic/5783/file.wav
         idx = list(parts).index("marine-acoustic")
-        key = "marine-acoustic-core/" + "/".join(parts[idx+1:])
+        # Saltar el segundo "marine-acoustic" si existe
+        remaining = parts[idx+1:]
+        if remaining and remaining[0] == "marine-acoustic":
+            remaining = remaining[1:]
+        key = "marine-acoustic/" + "/".join(remaining)
     except ValueError:
-        key = Path(file_path).name
+        key = "marine-acoustic/" + Path(file_path).name
 
     s3 = boto3.client(
         "s3",
