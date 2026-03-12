@@ -151,8 +151,13 @@ def audio_to_bytes(audio, sr):
 
 def load_labels():
     if LABELS_CSV.exists():
-        df = pd.read_csv(LABELS_CSV)
-        return df.set_index("clip_id").to_dict(orient="index")
+        try:
+            df = pd.read_csv(LABELS_CSV)
+            if df.empty or "clip_id" not in df.columns:
+                return {}
+            return df.set_index("clip_id").to_dict(orient="index")
+        except Exception:
+            return {}
     return {}
 
 def save_label(clip_id, labels, confidence, notes, flag_expert, annotator):
