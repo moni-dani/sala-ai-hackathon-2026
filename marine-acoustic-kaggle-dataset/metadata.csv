@@ -1,0 +1,12 @@
+file_id,file_name,duration_sec,sample_rate,approx_time_of_day,source_group
+1,recording_0001.wav,1200.049,144000,unknown,5783
+2,recording_0002.wav,1200.007,144000,unknown,5783
+3,recording_0003.wav,599.998,96000,unknown,6478
+4,recording_0004.wav,599.981,96000,unknown,6478
+5,recording_0005.wav,599.997,96000,unknown,6478
+6,recording_0006.wav,599.989,96000,unknown,6478
+7,recording_0007.wav,299.904,48000,unknown,Music_Soundtrap_Pilot
+8,recording_0008.wav,299.904,48000,unknown,Music_Soundtrap_Pilot
+9,recording_0009.wav,299.904,48000,unknown,Music_Soundtrap_Pilot
+10,recording_0010.wav,299.904,48000,unknown,Music_Soundtrap_Pilot
+11,recording_0011.wav,299.904,48000,unknown,Music_Soundtrap_Pilot
