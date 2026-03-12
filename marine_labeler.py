@@ -264,7 +264,7 @@ filtered = clips_df.copy()
 if cluster_filter != "Todos":
     filtered = filtered[filtered["cluster"] == int(cluster_filter)]
 
-labeled_ids = set(int(k) for k in st.session_state.saved_labels.keys())
+labeled_ids = set(int(k) for k in st.session_state.saved_labels.keys() if str(k).lstrip('-').isdigit())
 
 if label_filter == "Sin etiquetar primero":
     unlabeled = filtered[~filtered["clip_id"].isin(labeled_ids)]
